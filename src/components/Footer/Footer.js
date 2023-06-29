@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { FooterContainer } from "./styled";
 
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <FooterContainer>
+      <p>
+        Developed By <a href="#">Sajal Mahapatra</a>
+      </p>
+    </FooterContainer>
+  );
+};
 
-export default Footer
+export default Footer;
