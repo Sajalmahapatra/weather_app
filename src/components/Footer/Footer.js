@@ -1,13 +1,9 @@
-import styled from "styled-components";
+import React from 'react'
 
-export const FooterContainer = styled.footer`
-  p {
-    padding: 1rem 0;
-    font-size: 1rem;
-    text-align: center;
-    collor: #2f6f8a;
-    a {
-      color: #1a5a73;
-    }
-  }
-`;
+const Footer = () => {
+  return (
+    <div>Footer</div>
+  )
+}
+
+export default Footer
