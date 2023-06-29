@@ -15,8 +15,11 @@ const appSlice = createSlice({
       localStorage.setItem("darkMode", (!state.darkMode).toString());
       state.darkMode = !state.darkMode;
     },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
   },
 });
-export const { toggleDarkMode } = appSlice.actions;
+export const { toggleDarkMode, setIsLoading } = appSlice.actions;
 const { reducer } = appSlice;
 export default reducer;
