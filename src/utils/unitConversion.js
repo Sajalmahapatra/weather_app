@@ -1,4 +1,4 @@
-const TempUnit = {
+export const TempUnit = {
   CELCIUS: 0,
   FAHRENHEIT: 1,
 };
