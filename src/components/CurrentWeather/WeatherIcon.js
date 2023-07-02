@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { ReactComponent as CloudyIcon } from "../../assets/weather/cloudy.svg";
 import { ReactComponent as HazeIcon } from "../../assets/weather/haze.svg";
 import { ReactComponent as HeavyRainIcon } from "../../assets/weather/heavyRain.svg";
@@ -31,27 +31,13 @@ const WeatherIcon = (props) => {
     },
   ];
 
-  function binarySearch(arr, target) {
-    let left = 0;
-    let right = arr.length - 1;
-
-    while (left <= right) {
-      const mid = Math.floor((left + right) / 2);
-      const range = arr[mid].range;
-
-      if (target >= range[0] && target <= range[range.length - 1]) {
-        return arr[mid].icon;
-      } else if (target < range[0]) {
-        right = mid - 1;
-      } else {
-        left = mid + 1;
-      }
+  let Icon = SunnyIcon;
+  for (const entry of codeToIconMap) {
+    if (entry.range.includes(props.code)) {
+      Icon = entry.icon;
+      break;
     }
-
-    return SunnyIcon; // Default icon
   }
-
-  const Icon = binarySearch(codeToIconMap, props.code);
   return props.big ? (
     <Icon style={{ width: "100px", height: "100px" }} />
   ) : (

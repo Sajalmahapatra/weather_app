@@ -5,6 +5,7 @@ import Search from "../components/Search/Search";
 import Footer from "../components/Footer/Footer";
 import CurrentWeather from "../components/CurrentWeather/CurrentWeather";
 import { useSelector } from "react-redux";
+import Forecast from "../components/Forecast/Forecast";
 
 const Home = () => {
   const loading = useSelector((state) => state.app.isLoading);
@@ -14,6 +15,7 @@ const Home = () => {
       <Header />
       <Search />
       <CurrentWeather />
+      <Forecast />
       <Footer />
     </>
   );
