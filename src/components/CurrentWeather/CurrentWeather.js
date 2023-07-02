@@ -5,12 +5,13 @@ import {
   SectionTitle,
   WeatherContainer,
 } from "./styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeTempUnit } from "../../store/reducers/appReducer";
 import ToggleSwitch from "../ui/ToggleSwitch/ToggleSwitch";
 // import { changeTempUnit } from '../../store/reducers/appReducer';
 
 const CurrentWeather = () => {
+  const darkMode = useSelector((state) => console.log(state));
   const dispatch = useDispatch();
   return (
     <WeatherContainer>
@@ -21,7 +22,9 @@ const CurrentWeather = () => {
         </div>
       </div>
       <CurrentWeatherContainer>
-        <CurrentWeatherStatus></CurrentWeatherStatus>
+        <CurrentWeatherStatus>
+
+        </CurrentWeatherStatus>
       </CurrentWeatherContainer>
     </WeatherContainer>
   );

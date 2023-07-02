@@ -43,7 +43,9 @@ const Search = () => {
   };
 
   const showPosition = (position) => {
+    console.log("🚀 ~ file: Search.js:46 ~ showPosition ~ position:", position)
     const { latitude, longitude } = position.coords;
+    
     dispatch(
       fetchWeather({
         lat: latitude,
