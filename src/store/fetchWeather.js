@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { setIsLoading } from "./reducers/appReducer";
+import { setIsInitial, setIsLoading } from "./reducers/appReducer";
 import { fetchWeatherData } from "../api/weather";
 import { kelvinToCelcius } from "../utils/unitConversion";
 import { getNextSevenDays } from "../utils/dateUtils";
@@ -12,6 +12,11 @@ export const fetchWeather = createAsyncThunk(
       const response = await Promise.all([fetchWeatherData(city)]);
       console.log("🚀 ~ file: fetchWeather.js:11 ~ response:", response)
       dispatch(setIsLoading(false));
+      if (response[0].cod === 200) {
+        dispatch(setIsInitial(false));
+        return response;
+      }
+      return rejectWithValue(response[0].message);
       return response
     } catch (error) {
       dispatch(setIsLoading(false));
