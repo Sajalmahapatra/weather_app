@@ -35,7 +35,7 @@ export const transformWeatherData = (res) => {
 
   const next7Days = getNextSevenDays();
 
-  res[1].list.forEach((i, index) => {
+  res?.[1] && res[1]?.list && res[1].list.forEach((i, index) => {
     forecast.push({
       day: next7Days[index],
       temp: {
